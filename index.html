@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Speed Dial</title>
+
+    <script type="text/javascript"         src="quicontext.js"></script>
+    <link rel="stylesheet" type="text/css" href="quicontext.css"/>
+
+    <style type="text/css">
+        body{
+            background: #888;font:medium sans-serif;
+        }
+        .center{
+            display: block;position:absolute;margin: auto;
+            top: 0;bottom: 0;right: 0;left: 0;
+            width: 500px;line-height: 500px;height: 500px;
+            background: #CCCCCC;text-align: center;
+        }
+    </style>
+
+    <script>
+        // Menu formed here
+        quicontext.menu.add('demo_menu',{
+            'Hello,world':function(){alert('Hello, world');},
+            'any id':'-',
+            'Item 1':function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);},
+            'Item 2':function(a,b,c,d){alert(c);}
+
+        });
+    </script>
+
+</head>
+<body>
+
+    <div class="center" context-menu="demo_menu">Right-click me.</div>
+
+</body>
+</html>

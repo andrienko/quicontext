@@ -2,6 +2,8 @@ QuiContext
 =====================
 JS context menu library for modern browsers
 
+![A screenshot of example menu](menu.png)
+
 Yet another useless library. Written for chrome extension, then decided to develop separately...
 It's day will come, trust me. Eventually.
 

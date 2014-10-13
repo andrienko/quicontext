@@ -47,3 +47,4 @@ Future plans
  - Maybe support for IE8 or something
  - URLs
  - Check-functions for titles
+ - Different styles for different browsers

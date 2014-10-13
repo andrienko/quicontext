@@ -22,10 +22,14 @@
     <script>
         // Menu formed here
             quicontext.menu.demo_menu = [
-                {title:'Hello, world', click:function(){alert('Hello, world!')}},
+                {title:'Hello, world'                   ,click:function(){alert('Hello, world!')}},
                 '-',
-                {title:'Item 1',click:function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);}},
-                {title:'Item 2',click:function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);}}
+                {title:'Item 1'                         ,click:function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);}},
+                {title:'Item 2'                         ,click:function(a,b,c){console.log(b[c]);}},
+                '-',
+                {title:'Disabled item',disabled:true   ,click:function(a,b,c){console.log(b[c]);}},
+                {title:'Disabled for right half of screen'          ,click:function(a,b,c){console.log(b[c]);},disabled:function(a,b,c,d){return d[0]>(document.body.clientWidth/2);}},
+                {title:'Hidden',hidden:true}
             ];
 
     </script>

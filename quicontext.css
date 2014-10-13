@@ -1,4 +1,10 @@
 #quicontext {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   text-align: left;
   color: #000;
   font: normal 10pt 'Segoe UI', Tahoma, sans-serif;
@@ -23,6 +29,9 @@
   margin: 0;
   padding: 0;
 }
+#quicontext ul {
+  user-select: none;
+}
 #quicontext ul li.sep {
   padding: 0.2em 0;
 }
@@ -33,6 +42,9 @@
   content: '';
   display: block;
 }
+#quicontext ul li.disabled {
+  color: #888;
+}
 #quicontext ul li {
   border: 1px solid #BBB;
   border-width: 0 1px;
@@ -40,7 +52,7 @@
   list-style-type: none;
   padding: 0.3em 2em;
 }
-#quicontext ul li:not(.sep):hover {
+#quicontext ul li:hover.clickable {
   color: #fff;
   border-color: #4281f4;
   background: #4281f4;

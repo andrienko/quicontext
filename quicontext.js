@@ -74,15 +74,33 @@ quicontext = {
         for(var index in menu){
             var list_item = document.createElement('li');
             list_item.setAttribute(this.strings.attrNameIndex,index);
-            if(menu[index]=='-')list_item.className = 'sep';
+
+            if(menu[index].hidden == true || (typeof menu[index].hidden == 'function' && menu[index].hidden(forElement,menu,index,[x,y]))){}
             else{
-                list_item.innerHTML = menu[index].title;
-                list_item.onclick =   function(e){
-                    menu[this.getAttribute(that.strings.attrNameIndex)].click(forElement,menu,e.target.innerHTML,e);
-                    that.hideMenu();
-                };
+                if(menu[index]=='-')list_item.className = 'sep';
+                else{
+                    list_item.innerHTML = menu[index].title;
+
+                    var disabled = false;
+
+                    if(typeof menu[index].disabled == "function")
+                        disabled = menu[index].disabled(forElement,menu,index,[x,y]);
+
+                    else if(menu[index].disabled == true)disabled=true;
+
+
+                    if(!disabled && typeof menu[index].click == 'function'){
+                        list_item.className='clickable';
+                        list_item.onclick =   function(e){
+                            var index = this.getAttribute(that.strings.attrNameIndex);
+                            menu[index].click(forElement,menu,index,e);
+                            that.hideMenu();
+                        };
+                    }
+                    else list_item.className = 'disabled';
+                }
+                ul.appendChild(list_item);
             }
-            ul.appendChild(list_item);
         }
 
         this.element.innerHTML = '';

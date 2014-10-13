@@ -1,4 +1,14 @@
+.noselect(){
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #quicontext{
+  .noselect();
   text-align: left;
   &:before,&:after{
     display: block;
@@ -22,6 +32,7 @@
     padding: 0;
   }
   ul{
+    user-select: none;
     li.sep{
       padding: 0.2em 0;
       &:after{
@@ -32,13 +43,16 @@
         display: block;
       }
     }
+    li.disabled{
+      color:#888;
+    }
     li{
       border:1px solid #BBB;
       border-width: 0 1px;
       cursor:default;
       list-style-type: none;
       padding:0.3em 2em;
-      &:not(.sep):hover{
+      &:hover.clickable{
         color:#fff;
         border-color: rgb(66,129,244);
         background:   rgb(66,129,244);

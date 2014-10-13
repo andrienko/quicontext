@@ -1,4 +1,5 @@
-#quicontext {
+#quicontext,
+.quicontext {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -13,46 +14,57 @@
   box-shadow: 0.3em 0.3em 0.3em -0.2em rgba(0, 0, 0, 0.7);
 }
 #quicontext:before,
-#quicontext:after {
+.quicontext:before,
+#quicontext:after,
+.quicontext:after {
   display: block;
   content: '';
   height: 2px;
   border: 1px solid #BBB;
 }
-#quicontext:before {
+#quicontext:before,
+.quicontext:before {
   border-bottom: 0;
 }
-#quicontext:after {
+#quicontext:after,
+.quicontext:after {
   border-top: 0;
 }
-#quicontext * {
+#quicontext *,
+.quicontext * {
   margin: 0;
   padding: 0;
 }
-#quicontext ul {
+#quicontext ul,
+.quicontext ul {
   user-select: none;
 }
-#quicontext ul li.sep {
+#quicontext ul li.sep,
+.quicontext ul li.sep {
   padding: 0.2em 0;
 }
-#quicontext ul li.sep:after {
+#quicontext ul li.sep:after,
+.quicontext ul li.sep:after {
   width: 100%;
   height: 1px;
   background: #DDD;
   content: '';
   display: block;
 }
-#quicontext ul li.disabled {
+#quicontext ul li.disabled,
+.quicontext ul li.disabled {
   color: #888;
 }
-#quicontext ul li {
+#quicontext ul li,
+.quicontext ul li {
   border: 1px solid #BBB;
   border-width: 0 1px;
   cursor: default;
   list-style-type: none;
   padding: 0.3em 2em;
 }
-#quicontext ul li:hover.clickable {
+#quicontext ul li:hover.clickable,
+.quicontext ul li:hover.clickable {
   color: #fff;
   border-color: #4281f4;
   background: #4281f4;

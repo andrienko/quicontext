@@ -8,6 +8,7 @@ quicontext = {
 
     strings:{
         attrName:'context-menu',
+        attrNameIndex:'menu-item',
         elementID:'quicontext'
     },
     menu:{},
@@ -56,7 +57,6 @@ quicontext = {
 
     displayMenu: function (x,y, menu,forElement) {
 
-        console.log(x,y);
         var that = this;
 
         if(this.element==undefined){
@@ -73,11 +73,12 @@ quicontext = {
 
         for(var index in menu){
             var list_item = document.createElement('li');
+            list_item.setAttribute(this.strings.attrNameIndex,index);
             if(menu[index]=='-')list_item.className = 'sep';
             else{
-                list_item.innerHTML = index;
+                list_item.innerHTML = menu[index].title;
                 list_item.onclick =   function(e){
-                    menu[e.target.innerHTML](forElement,menu,e.target.innerHTML,e);
+                    menu[this.getAttribute(that.strings.attrNameIndex)].click(forElement,menu,e.target.innerHTML,e);
                     that.hideMenu();
                 };
             }

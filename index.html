@@ -21,13 +21,12 @@
 
     <script>
         // Menu formed here
-        quicontext.menu.add('demo_menu',{
-            'Hello,world':function(){alert('Hello, world');},
-            'any id':'-',
-            'Item 1':function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);},
-            'Item 2':function(a,b,c,d){alert(c);}
-
-        });
+            quicontext.menu_add('demo_menu',{
+                'Hello,world':function(){alert('Hello, world');},
+                'any id':'-',
+                'Item 1':function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);},
+                'Item 2':function(a,b,c,d){alert(c);}
+            });
     </script>
 
 </head>

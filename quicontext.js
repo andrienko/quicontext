@@ -10,13 +10,11 @@ quicontext = {
         attrName:'context-menu',
         elementID:'quicontext'
     },
-    menu:{
-        add:function(menu_id,menu_items){
-            if(menu_id!='add')this[menu_id] = menu_items;
-        }
+    menu:{},
+    menu_add:function(menu_id,menu_items){
+        this.menu[menu_id] = menu_items;
     },
     getMenu:function(element){
-
         var selectedElement = element;
         while(element!=null){
 
@@ -35,12 +33,10 @@ quicontext = {
     },
     click:function(a){
         this.hideMenu();
-        var menu = this.getMenu(a.toElement);
+        var menu = this.getMenu(a.target);
 
-        var menuName = menu.name;
-
-        if(menuName){
-            this.displayMenu(a.x, a.y,this.menu[menuName], a.toElement);
+        if(menu){
+            this.displayMenu(a.clientX, a.clientY,this.menu[menu.name], a.target);
             a.preventDefault();
             return false;
         }
@@ -60,6 +56,7 @@ quicontext = {
 
     displayMenu: function (x,y, menu,forElement) {
 
+        console.log(x,y);
         var that = this;
 
         if(this.element==undefined){
@@ -80,7 +77,7 @@ quicontext = {
             else{
                 list_item.innerHTML = index;
                 list_item.onclick =   function(e){
-                    menu[e.toElement.innerHTML](forElement,menu,e.toElement.innerHTML,e);
+                    menu[e.target.innerHTML](forElement,menu,e.target.innerHTML,e);
                     that.hideMenu();
                 };
             }

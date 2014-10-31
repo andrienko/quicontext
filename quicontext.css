@@ -1,16 +1,25 @@
 #quicontext,
 .quicontext {
+  position: absolute;
+}
+#quicontext,
+.quicontext,
+#quicontext *,
+.quicontext * {
+  cursor: default;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+#quicontext,
+.quicontext {
   text-align: left;
   color: #000;
   font: normal 10pt 'Segoe UI', Tahoma, sans-serif;
   background: #fff;
-  position: absolute;
   box-shadow: 0.3em 0.3em 0.3em -0.2em rgba(0, 0, 0, 0.7);
 }
 #quicontext:before,
@@ -34,10 +43,6 @@
 .quicontext * {
   margin: 0;
   padding: 0;
-}
-#quicontext ul,
-.quicontext ul {
-  user-select: none;
 }
 #quicontext ul li.sep,
 .quicontext ul li.sep {

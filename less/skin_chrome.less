@@ -1,14 +1,6 @@
-.noselect(){
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+// Chrome style
 
 #quicontext, .quicontext{
-  .noselect();
   text-align: left;
   &:before,&:after{
     display: block;
@@ -25,14 +17,12 @@
   color:#000;
   font:normal 10pt 'Segoe UI', Tahoma, sans-serif;
   background: #fff;
-  position: absolute;
   box-shadow:0.3em 0.3em 0.3em -0.2em rgba(0,0,0,0.7);
   *{
     margin: 0;
     padding: 0;
   }
   ul{
-    user-select: none;
     li.sep{
       padding: 0.2em 0;
       &:after{

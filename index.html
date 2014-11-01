@@ -21,16 +21,16 @@
 
     <script>
         // Menu defined here
-        quicontext.menu.demo_menu = [
-            {title:'Hello, world'                   ,click:function(){alert('Hello, world!')}},
-            '-',
-            {title:'Item 1'                         ,click:function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);}},
-            {title:'Clicked element innerHTML'                         ,click:function(a,b,c){alert('The element inner HTML is "'+a.innerHTML+'"');}},
-            '-',
-            {title:'Disabled item',disabled:true   ,click:function(a,b,c){console.log(b[c]);}},
-            {title:'Disabled for right half of screen'          ,click:function(a,b,c){console.log(b[c]);},disabled:function(a,b,c,d){return d[0]>(document.body.clientWidth/2);}},
-            {title:'Hidden',hidden:true}
-        ];
+        quicontext.menu_add('demo_menu',quicontext.build
+                .item("Hello, world",function(a,b,c){alert(b[c])})
+                .separator()
+                .item('Item 1',function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);})
+                .item('Clicked element innerHTML',function(a,b,c){alert('The element inner HTML is "'+a.innerHTML+'"');})
+                .separator()
+                .item('Disabled item',function(){},true)
+                .item('Disabled for right half of screen',function(a,b,c){console.log(b[c]);},function(a,b,c,d){return d[0]>(document.body.clientWidth/2);})
+                .item('Hidden',function(){},false,true)
+        );
 
     </script>
 

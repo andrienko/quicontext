@@ -16,7 +16,9 @@ quicontext = {
     skin:'chrome',
     menu:{},
     menu_add:function(menu_id,menu_items){
-        this.menu[menu_id] = menu_items;
+        if(menu_items.items == undefined)
+            this.menu[menu_id] = menu_items;
+        else this.menu[menu_id] = menu_items.items;
     },
     getMenu:function(element){
         var selectedElement = element;
@@ -32,8 +34,6 @@ quicontext = {
             element = element.parentElement;
         }
         return null;
-
-
     },
     click:function(a){
         this.hideMenu();
@@ -114,6 +114,18 @@ quicontext = {
         this.element.style.left = x + 'px';
         this.element.style.top = y + 'px';
 
+    },
+
+    build:{
+        items:[],
+        item:function(title,callback,disabled,hidden){
+            this.items.push({title:title,click:callback,disabled:disabled,hidden:hidden});
+            return this;
+        },
+        separator:function(){
+            this.items.push('-');
+            return this;
+        }
     },
 
     element:undefined

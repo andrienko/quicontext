@@ -40,11 +40,26 @@ Add an element with `context-menu` custom attribute and assign name of your menu
     
 Et voila. Upon click on that element your menu should appear. Child elements have higher priority than parent in this.
  
+### 3. Skins and stuff
+ 
+There are several skins.. Right now you have to compile them yourself, for which you will probably need
+[less compiler](http://lesscss.org/):
+
+    lessc less/quicontext.less quicontext.css
+    
+Skins are imported from that less file
+
+    @import "skin_3ds";
+    
+Do not rely on this yet, in future it will be changed.
+ 
 Future plans
 ---
  - Nested menus
  - Icons (and sprites)
  - Maybe support for IE8 or something
  - URLs
+ - Callbacks for everything
+ - Keyboard shortcuts?
  - Check-functions for titles
  - Different styles for different browsers

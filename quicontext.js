@@ -9,8 +9,10 @@ quicontext = {
     strings:{
         attrName:'context-menu',
         attrNameIndex:'menu-item',
-        elementID:'quicontext'
+        elementID:'quicontext',
+        skinPrefix:'quicontext_skin_'
     },
+    skin:'chrome',
     menu:{},
     menu_add:function(menu_id,menu_items){
         this.menu[menu_id] = menu_items;
@@ -104,6 +106,7 @@ quicontext = {
         }
 
         this.element.innerHTML = '';
+        this.element.className = this.strings.skinPrefix+this.skin;
         this.element.appendChild(ul);
 
         this.element.style.display = 'block';

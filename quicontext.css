@@ -111,3 +111,43 @@
 .quicontext.quicontext_skin_3ds li:not(.sep) {
   padding: 0.1em 1em;
 }
+/* Blender3D Style */
+#quicontext.quicontext_skin_blender,
+.quicontext.quicontext_skin_blender {
+  color: #EEEEEE;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  font: 12px Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+#quicontext.quicontext_skin_blender,
+.quicontext.quicontext_skin_blender,
+#quicontext.quicontext_skin_blender *,
+.quicontext.quicontext_skin_blender * {
+  margin: 0;
+  padding: 0;
+}
+#quicontext.quicontext_skin_blender li,
+.quicontext.quicontext_skin_blender li {
+  list-style-type: none;
+}
+#quicontext.quicontext_skin_blender li.clickable:hover,
+.quicontext.quicontext_skin_blender li.clickable:hover {
+  color: #000;
+  background: #77a0e2 linear-gradient(#77a0e2, #5781c2);
+}
+#quicontext.quicontext_skin_blender li.sep,
+.quicontext.quicontext_skin_blender li.sep {
+  border-top: 1px solid #222222;
+}
+#quicontext.quicontext_skin_blender li.disabled,
+.quicontext.quicontext_skin_blender li.disabled {
+  color: #888;
+}
+#quicontext.quicontext_skin_blender li:not(.sep),
+.quicontext.quicontext_skin_blender li:not(.sep) {
+  border-radius: 1px;
+  margin: 4px;
+  padding: 0.3em 0.9em;
+}

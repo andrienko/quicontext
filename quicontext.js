@@ -1,7 +1,7 @@
 /**
- * QuiContext library
- * version 1.0
- * (c) I. Andrienko, 2014
+ * QuiContext library 1.0 by I. Andrienko
+ * http://github.com/andrienko/quicontext
+ * MIT Licensed
  */
 
 quicontext = {

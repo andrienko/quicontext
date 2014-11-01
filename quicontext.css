@@ -75,3 +75,39 @@
   border-color: #4281f4;
   background: #4281f4;
 }
+/* 3ds Max Style */
+#quicontext.quicontext_skin_3ds,
+.quicontext.quicontext_skin_3ds {
+  color: #000;
+  background: #BFBFBF;
+  border: 1px solid #000;
+  font: 12px Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+#quicontext.quicontext_skin_3ds,
+.quicontext.quicontext_skin_3ds,
+#quicontext.quicontext_skin_3ds *,
+.quicontext.quicontext_skin_3ds * {
+  margin: 0;
+  padding: 0;
+}
+#quicontext.quicontext_skin_3ds li,
+.quicontext.quicontext_skin_3ds li {
+  list-style-type: none;
+}
+#quicontext.quicontext_skin_3ds li.clickable:hover,
+.quicontext.quicontext_skin_3ds li.clickable:hover {
+  background: #808080;
+}
+#quicontext.quicontext_skin_3ds li.sep,
+.quicontext.quicontext_skin_3ds li.sep {
+  border-top: 1px solid #000;
+}
+#quicontext.quicontext_skin_3ds li.disabled,
+.quicontext.quicontext_skin_3ds li.disabled {
+  color: #888;
+}
+#quicontext.quicontext_skin_3ds li:not(.sep),
+.quicontext.quicontext_skin_3ds li:not(.sep) {
+  padding: 0.1em 1em;
+}

@@ -10,6 +10,7 @@ quicontext = {
         attrName:'context-menu',
         attrNameIndex:'menu-item',
         elementID:'quicontext',
+        elementClass:'quicontext',
         skinPrefix:'quicontext_skin_'
     },
     skin:'chrome',

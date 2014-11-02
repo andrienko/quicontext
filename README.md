@@ -50,6 +50,16 @@ There are several skins.. Right now you have to compile them yourself, for which
 Skins are imported from that less file
 
     @import "skin_3ds";
+
+And then you have to change the skin via line of js code:
+
+    quicontext.skin = "3ds";
+
+And voila:
+    
+![Skin of 3ds max](3dskin.png)
+    
+Chrome skin is the default.
     
 Do not rely on this yet, in future it will be changed.
  

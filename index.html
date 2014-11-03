@@ -24,10 +24,10 @@
         quicontext.menu_add('demo_menu',quicontext.build
                 .item("Hello, world",function(a,b,c){alert(b[c].title)})
                 .separator()
-                .item('Item 1',function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert(menuitem_index);})
-                .item('Clicked element innerHTML',function(a,b,c){alert('The element inner HTML is "'+a.innerHTML+'"');})
+                .item('Item 1')
+                .item('Clicked element innerHTML',function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert('The element inner HTML is "'+clickedElement.innerHTML+'"');})
                 .separator()
-                .item('Disabled item',function(){},true)
+                .item('Disabled item',"",true)
                 .item('Disabled for right half of screen',function(a,b,c){console.log(b[c].title);},function(a,b,c,d){return d[0]>(document.body.clientWidth/2);})
                 .item('Hidden for right half of screen',function(){},false,function(a,b,c,d){return d[0]>(document.body.clientWidth/2);})
         );

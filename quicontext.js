@@ -13,6 +13,9 @@ quicontext = {
         elementClass:'quicontext',
         skinPrefix:'quicontext_skin_'
     },
+    defaultClicker:function(clickedElement,all_menu_items,menuitem_index,mouse_event){
+        console.log('Clicked element number '+menuitem_index+' titled '+all_menu_items[menuitem_index].title);
+    },
     skin:'chrome',
     menu:{},
     menu_add:function(menu_id,menu_items){
@@ -92,11 +95,17 @@ quicontext = {
                     else if(menu[index].disabled == true)disabled=true;
 
 
-                    if(!disabled && typeof menu[index].click == 'function'){
+                    if(!disabled){
                         list_item.className='clickable';
+
+
                         list_item.onclick =   function(e){
+
+                            var clicker = that.defaultClicker;
+
                             var index = this.getAttribute(that.strings.attrNameIndex);
-                            menu[index].click(forElement,menu,index,e);
+                            if(typeof menu[index].click == 'function') clicker = menu[index].click;
+                            clicker(forElement,menu,index,e);
                             that.hideMenu();
                         };
                     }

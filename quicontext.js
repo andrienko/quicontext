@@ -125,22 +125,23 @@ quicontext = {
 
     },
 
-    build:{
-        items:[],
-        item:function(title,callback,disabled,hidden){
-            this.items.push({title:title,click:callback,disabled:disabled,hidden:hidden});
-            return this;
-        },
-        separator:function(){
-            this.items.push('-');
-            return this;
-        }
+    build:function(){
+        return {
+            items:[],
+            item:function(title,callback,disabled,hidden){
+                this.items.push({title:title,click:callback,disabled:disabled,hidden:hidden});
+                return this;
+            },
+            separator:function(){
+                this.items.push('-');
+                return this;
+            }
+        };
     },
 
     element:undefined
 
 };
-
 
 window.addEventListener('contextmenu',function(a){
     quicontext.click(a);

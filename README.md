@@ -19,9 +19,9 @@ Usage
 
 First you have to define the menu. Each menu is a part of quicontext.menu object:
 
-    quicontext.menu.demo_menu = [
+    quicontext.menu_add('demo_menu',[
         {title:'Hello, world',click:function(){alert('Hello, world!')}},
-    ];
+    ]);
  
 Each menu is an array, containing objects. Each object has several indexes:
 
@@ -31,6 +31,15 @@ Each menu is an array, containing objects. Each object has several indexes:
  true element will also be disabled.
  - `hidden` (optional) almost same as disabled, but this one will hide an element completely.
  - **Planned** `submenu` (optional) an array of menuitems in same format, which will be elements of child menu
+
+Also, you can use the quicontext.build() helper:
+
+    quicontext.menu_add('demo_menu',quicontext.build().
+        item('Hello, world!',function(){alert('Hello, world!')})
+    );
+
+Which has two cascading methods: item and separator. Item method accepts 4 parameters: title, click callback, disable
+callback and hide callback.
 
 ### 2. Assign the menu to an element
 

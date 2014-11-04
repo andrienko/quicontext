@@ -150,3 +150,34 @@ window.addEventListener('contextmenu',function(a){
 window.addEventListener('click',function(a){
     quicontext.hideMenu();
 });
+
+
+quicontext.strings.menuId = 'menu-id';
+
+quicontext.tools = {
+
+    qsa:function(selector,element){
+        if(element == undefined)element = document;
+        var nl = element.querySelectorAll(selector);
+        var arr = [];
+        for(var i = nl.length; i--; arr.unshift(nl[i])){}
+        return arr;
+    },
+    readMenus:function(){
+        var menus = this.qsa('['+quicontext.strings.menuId+']');
+        for(index in menus){
+            this.readMenu(menus[index]);
+        }
+    },
+    readMenu:function(menuElement){
+        console.log(menuElement);
+        menuElement.remove();
+    }
+
+};
+
+document.addEventListener('DOMContentLoaded',function(){
+    quicontext.tools.readMenus();
+});
+
+

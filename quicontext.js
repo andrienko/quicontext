@@ -126,6 +126,7 @@ quicontext = {
     },
 
     build:function(){
+        var that = this;
         return {
             items:[],
             item:function(title,callback,disabled,hidden){
@@ -135,6 +136,9 @@ quicontext = {
             separator:function(){
                 this.items.push('-');
                 return this;
+            },
+            add:function(menu_id){
+                that.menu_add(menu_id,this.items);
             }
         };
     },
@@ -176,12 +180,18 @@ document.addEventListener('DOMContentLoaded',function(){
                 }
             },
             readMenu:function(menuElement){
-
+                var menuId = menuElement.getAttribute(parent.strings.menuId);
                 var menu = parent.build();
                 var items = [].slice.call(menuElement.getElementsByTagName('li'));
                 for(var index in items){
-                    console.log(items[index]);
+                    var element = items[index];
+
+                    var title = element.innerHTML;
+
+                    if(title=="-")menu.separator();
+                    else menu.item(element.innerHTML);
                 }
+                menu.add(menuId);
             }
 
         };

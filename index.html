@@ -25,7 +25,7 @@
                 .item("Hello, world",function(a,b,c){alert(b[c].title)})
                 .separator()
                 .item('Item 1')
-                .item('Clicked element innerHTML',function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert('The element inner HTML is "'+clickedElement.innerHTML+'"');})
+                .item('Clicked element innerHTML',function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert('The element text content is "'+clickedElement.textContent+'"');})
                 .separator()
                 .item('Disabled item',"",true)
                 .item('Disabled for right half of screen',function(a,b,c){console.log(b[c].title);},function(a,b,c,d){return d[0]>(document.body.clientWidth/2);})
@@ -43,7 +43,7 @@
     </div>
 
     <ul menu-id="demo_menu_2">
-        <li>Test</li>
+        <li onclick="console.log('Hey!');">Test</li>
         <li>Hey</li>
         <li>-</li>
         <li>Oh my</li>

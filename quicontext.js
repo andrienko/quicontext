@@ -185,11 +185,11 @@ document.addEventListener('DOMContentLoaded',function(){
                 var items = [].slice.call(menuElement.getElementsByTagName('li'));
                 for(var index in items){
                     var element = items[index];
-
                     var title = element.innerHTML;
+                    var onclick = element.onclick;
 
                     if(title=="-")menu.separator();
-                    else menu.item(element.innerHTML);
+                    else menu.item(element.innerHTML,onclick);
                 }
                 menu.add(menuId);
             }

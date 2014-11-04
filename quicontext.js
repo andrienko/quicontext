@@ -154,35 +154,42 @@ window.addEventListener('click',function(a){
 
 quicontext.strings.menuId = 'menu-id';
 
-quicontext.tools = {
-
-    qsa:function(selector,element){
-        if(element == undefined)element = document;
-        var nl = element.querySelectorAll(selector);
-        var arr = [];
-        for(var i = nl.length; i--; arr.unshift(nl[i])){}
-        return arr;
-    },
-    readMenus:function(){
-        var menus = this.qsa('['+quicontext.strings.menuId+']');
-        for(var index in menus){
-            this.readMenu(menus[index]);
-            menus[index].remove();
-        }
-    },
-    readMenu:function(menuElement){
-
-        var menu = quicontext.build();
-        var items = [].slice.call(menuElement.getElementsByTagName('li'));
-        for(var index in items){
-            console.log(items[index]);
-        }
-    }
-
-};
 
 document.addEventListener('DOMContentLoaded',function(){
-    quicontext.tools.readMenus();
+
+    (function(parent){
+        parent.strings.menuId = 'menu-id';
+        parent.tools = {
+
+            qsa:function(selector,element){
+                if(element == undefined)element = document;
+                var nl = element.querySelectorAll(selector);
+                var arr = [];
+                for(var i = nl.length; i--; arr.unshift(nl[i])){}
+                return arr;
+            },
+            readMenus:function(){
+                var menus = this.qsa('['+parent.strings.menuId+']');
+                for(var index in menus){
+                    this.readMenu(menus[index]);
+                    menus[index].remove();
+                }
+            },
+            readMenu:function(menuElement){
+
+                var menu = parent.build();
+                var items = [].slice.call(menuElement.getElementsByTagName('li'));
+                for(var index in items){
+                    console.log(items[index]);
+                }
+            }
+
+        };
+
+        parent.tools.readMenus();
+
+    })(quicontext);
+
 });
 
 

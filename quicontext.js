@@ -165,13 +165,18 @@ quicontext.tools = {
     },
     readMenus:function(){
         var menus = this.qsa('['+quicontext.strings.menuId+']');
-        for(index in menus){
+        for(var index in menus){
             this.readMenu(menus[index]);
+            menus[index].remove();
         }
     },
     readMenu:function(menuElement){
-        console.log(menuElement);
-        menuElement.remove();
+
+        var menu = quicontext.build();
+        var items = [].slice.call(menuElement.getElementsByTagName('li'));
+        for(var index in items){
+            console.log(items[index]);
+        }
     }
 
 };

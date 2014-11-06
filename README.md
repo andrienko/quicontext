@@ -82,9 +82,35 @@ And voila:
 
 Chrome skin is the default.
 
+You can set context menu skin for certain element
+
+Building from DOM
+---
+
+Add something like this to your page:
+
+    <ul menu-id="demo_menu_2">
+        <li onclick="console.log('Hey!');">Test</li>
+        <li>-</li>
+        <li>Hey</li>
+    </ul>
+    
+`menu-id` is the key. If set - an element will be removed from page and new menu will be built based on contents of
+its' `<li>` elements. Onclick events of those will be assigned to menu items. Ones which innerHTML is == '-' will be
+separators.
+
+This one is in development and will probably be separated in future or completely removed from library.
+
+Strings and attribute html5-compatibility
+---
+
+All the strings are stored in `quicontext.strings` variable. Ones that are attribute names are starting with `attrName`
+So, if you want `context-menu` attribute to be html5-compatible `data-context-menu` - you will probably need to change
+this manually or, if you prefer the hacky way, after script load (but building from DOM may misbehave then)
+
 Under development
 ---
-Do not rely on this yet, in future it will be changed.
+Do not rely on any of this yet, in future it will probably be changed.
  
 Future plans
 ---

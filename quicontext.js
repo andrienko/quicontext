@@ -9,6 +9,7 @@ quicontext = {
     strings:{
         attrName:'context-menu',
         attrNameIndex:'menu-item',
+        attrNameSkin:'menu-skin',
         elementID:'quicontext',
         elementClass:'quicontext',
         skinPrefix:'quicontext_skin_'
@@ -61,7 +62,7 @@ quicontext = {
         this.element.style.display = 'none';
     },
 
-    displayMenu: function (x,y, menu,forElement) {
+    displayMenu: function (x,y, menu ,forElement) {
 
         var that = this;
 
@@ -116,7 +117,11 @@ quicontext = {
         }
 
         this.element.innerHTML = '';
-        this.element.className = this.strings.skinPrefix+this.skin;
+
+        var skin = forElement.getAttribute(this.strings.attrNameSkin);
+        if(skin == undefined) skin = this.skin;
+
+        this.element.className = this.strings.skinPrefix+skin;
         this.element.appendChild(ul);
 
         this.element.style.display = 'block';

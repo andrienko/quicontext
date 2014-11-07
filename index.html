@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Speed Dial</title>
+
+    <script type="text/javascript"         src="quicontext.js"></script>
+    <link rel="stylesheet" type="text/css" href="quicontext.css"/>
+
+    <style type="text/css">
+        body{
+            background: #888;font:medium sans-serif;
+        }
+        .center{
+            display: block;position:absolute;margin: auto;
+            top: 0;bottom: 0;right: 0;left: 0;
+            width: 500px;line-height: 500px;height: 500px;
+            background: #CCCCCC;text-align: center;
+        }
+    </style>
+
+    <script>
+        // Menu defined here
+        quicontext.menu_add('demo_menu',quicontext.build()
+                .item("Hello, world",function(a,b,c){alert(b[c].title)})
+                .separator()
+                .item('Item 1')
+                .item('Clicked element innerHTML',function(clickedElement,all_menu_items,menuitem_index,mouse_event){alert('The element text content is "'+clickedElement.textContent+'"');})
+                .separator()
+                .item('Disabled item',"",true)
+                .item('Disabled for right half of screen',function(a,b,c){console.log(b[c].title);},function(a,b,c,d){return d[0]>(document.body.clientWidth/2);})
+                .item('Hidden for right half of screen',function(){},false,function(a,b,c,d){return d[0]>(document.body.clientWidth/2);})
+        );
+
+    </script>
+
+</head>
+<body>
+
+    <div class="center" context-menu="demo_menu">
+        Right-click me.
+        <span class="something" context-menu="demo_menu_2" menu-skin="blender">Click me for other menu</span>
+    </div>
+
+    <ul menu-id="demo_menu_2">
+        <li onclick="console.log('Hey!');">Test</li>
+        <li>Hey</li>
+        <li>-</li>
+        <li>Oh my</li>
+        <li>-</li>
+        <li>Well.</li>
+    </ul>
+
+</body>
+</html>

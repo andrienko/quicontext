@@ -1,0 +1,33 @@
+/* 3ds Max Style */
+#@{element_id}, .@{element_class} {
+  &.@{skin_prefix}3ds {
+    &, * {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      &.clickable:hover {
+        background: #808080;
+      }
+      &.sep {
+        border-top: 1px solid #000;
+      }
+      &.disabled {
+        color: #888;
+      }
+      &:not(.sep) {
+        padding: 0.1em 1em;
+      }
+      list-style-type: none;
+    }
+
+    color: #000;
+    background: #BFBFBF;
+    border: 1px solid #000;
+
+    font: 12px Arial, Helvetica, sans-serif;
+    text-align: left;
+
+  }
+}
